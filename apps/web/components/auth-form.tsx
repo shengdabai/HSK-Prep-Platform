@@ -3,6 +3,8 @@
 import { useState, useTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
+import { safeRedirectPath } from "@/lib/redirect-target";
+
 type Mode = "login" | "signup";
 
 export function AuthForm({ mode }: { mode: Mode }) {
@@ -33,9 +35,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
       return;
     }
 
-    // 防 Open Redirect:只接受站内相对路径(以单个 / 开头),拒绝 //host 与绝对 URL。
-    const next = searchParams.get("next") ?? "/account";
-    const safeNext = next.startsWith("/") && !next.startsWith("//") ? next : "/account";
+    const safeNext = safeRedirectPath(searchParams.get("next"));
     startTransition(() => {
       router.push(safeNext);
       router.refresh();

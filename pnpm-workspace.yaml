@@ -7,6 +7,7 @@ ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
 overrides:
+  '@typescript-eslint/typescript-estree>minimatch': 11.0.1
   csv-parse@<7.0.2: '>=7.0.2'
   next@>=16.0.0 <16.2.11: '>=16.2.11'
   next@>=16.0.0 <16.2.5: '>=16.2.5'

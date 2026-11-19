@@ -14,7 +14,7 @@
     "@hsk/db": "workspace:*",
     "@hsk/shared": "workspace:*",
     "@hsk/ui": "workspace:*",
-    "next": "16.4.3",
+    "next": "16.4.5",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "stripe": "^19.1.0",
